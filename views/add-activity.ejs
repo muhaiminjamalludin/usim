@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!--Fontawesome-->
+    <script src="https://kit.fontawesome.com/67377a5c00.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,900|Ubuntu&display=swap" rel="stylesheet" />
+    <title><%= title %></title>
+</head>
+<style>
+    .table-wrapper {
+        margin-top: 50px;
+    }
+
+    .player-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .add-player-form {
+        margin-top: 50px;
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div class="page-wrapper">
+            <nav class="navbar navbar-light bg-light">
+                <span class="navbar-brand mb-0 h1"><a href="/"><img src="logo.png" alt="logo"></a></span>
+
+            </nav>
+            <div class="container">
+                <% if (message != '') { %>
+                <p class="text-center text-danger"><%= message %></p>
+                <% } %>
+                <form class="add-acitivity-form" action="" method="post" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="name" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control" name="location" id="location"
+                                placeholder="Event's Location" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control" name="organiser" id="organiser"
+                                placeholder="Event's Organiser" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control" name="description" id="description"
+                                placeholder="Event's description" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="activity-img"><b>Event's Poster/Image</b></label><br>
+                            <input type="file" name="image" id="activity-img" class="" required>
+                        </div>
+                    </div>
+                    Time and Date of the event (date and time): <input type="datetime-local" name="bdaytime">
+                    <button type="submit" class="btn btn-primary float-right">Add Activity</button>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

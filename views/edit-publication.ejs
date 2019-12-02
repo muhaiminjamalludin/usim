@@ -1,0 +1,78 @@
+<% include partials/header.ejs %>
+<h2>Edit Document</h2>
+<div class="container">
+    <% if (message) { %>
+    <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+    <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="tile">Title</label>
+                <input type="text" class="form-control" name="title" id="title" value="<%= publications.title %>"
+                    required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="language">Language</label>
+                <input type="text" class="form-control" name="language" id="language"
+                    value="<%= publications.language %>" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="year">Year</label>
+                <input type="number" class="form-control" name="year" id="year" value="<%= publications.year %>">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="institution">Institution</label>
+                <input type="text" class="form-control" name="institution" id="institution"
+                    value="<%= publications.institution %>" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="publication">Publication</label>
+                <input type="text" class="form-control" name="publication" id="publication"
+                    value="<%= publications.Publication %>" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="pages">Pages</label>
+                <input type="number" class="form-control" name="pages" id="pages" value="<%= publications.pages %>"
+                    required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="edition">Edition</label>
+                <input type="text" class="form-control" name="edition" id="edition" value="<%= publications.edition %>"
+                    required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="link">Link</label>
+                <input type="text" class="form-control" name="link" id="link" value="<%= publications.link %>" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="author">Author</label>
+                <input type="text" class="form-control" name="author" id="author" placeholder="author"
+                    value="<%= publications.author %>" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="type">Type</label>
+                <select id="type" name="type" class="form-control" required>
+                    <option>Book</option>
+                    <option>Research paper</option>
+                    <option>Conference</option>
+                    <option>Journal</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic" class="form-control" required>
+                    <option>Science</option>
+                    <option>Religion</option>
+                    <option>History & Philosophy</option>
+                    <option>Education</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success float-right">Update Document</button>
+    </form>
+</div>
+</div>
+</body>
+<% include partials/footer.ejs %>

@@ -1,0 +1,196 @@
+<% include partials/header.ejs %>
+<h2>Collection of Book, Research Paper, Journal and Conference related To iNaQ</h2>
+<p>The content of the publication below was drawned from various sources and does not necessarily
+    reflect the practice of Naqli & Aqli Knowledge Integration at USIM.</p>
+<!--
+        <form action="/filter-publication" method="POST">
+            <div class="col-lg-6 col-md-1">
+                <fieldset class="form-group">
+                    <legend>Filter by Topic of Publication:</legend>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input id="hola" name="science" class="form-check-input" type="checkbox" checked="true"
+                                value="science">
+                            Science
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="religion" class="form-check-input" type="checkbox" checked="true"
+                                value="Religion">
+                            Religion
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="hp" class="form-check-input" type="checkbox" checked="true"
+                                value="History & Philosophy">
+                            History & Philosophy
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="edu" class="form-check-input" type="checkbox" checked="true" value="Education">
+                            Education
+                        </label>
+                    </div>
+                </fieldset>
+
+            </div>
+            <div class="col-lg-6 col-md-1">
+                <fieldset class="form-group">
+                    <legend>Filter by Topic of Type of Publication:</legend>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="book" class="form-check-input" type="checkbox" checked="true" value="Book">
+                            Book
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="research" class="form-check-input" type="checkbox" checked="true"
+                                value="Research paper">
+                            Research Paper
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="conference" class="form-check-input" type="checkbox" checked="true"
+                                value="Conference">
+                            Conference
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="journal" class="form-check-input" type="checkbox" checked="true"
+                                value="Journal">
+                            Journal
+                        </label>
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+
+    </div>-->
+<table>
+    <tr>
+        <th>
+            <legend>Filter by Topic of Publication </legend>
+        </th><br>
+        <th>
+            <legend> Filter by Topic of Type of Publication</legend>
+        </th>
+    </tr>
+    <tr>
+        <form action="/filter-publication" method="POST">
+            <td>
+                <fieldset class="form-group">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input id="hola" name="science" class="form-check-input" type="checkbox" checked="true"
+                                value="science">
+                            Science
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="religion" class="form-check-input" type="checkbox" checked="true"
+                                value="Religion">
+                            Religion
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="hp" class="form-check-input" type="checkbox" checked="true"
+                                value="History & Philosophy">
+                            History & Philosophy
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="edu" class="form-check-input" type="checkbox" checked="true" value="Education">
+                            Education
+                        </label>
+                    </div>
+                </fieldset>
+            </td>
+            <td>
+                <fieldset class="form-group">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="book" class="form-check-input" type="checkbox" checked="true" value="Book">
+                            Book
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="research" class="form-check-input" type="checkbox" checked="true"
+                                value="Research paper">
+                            Research Paper
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="conference" class="form-check-input" type="checkbox" checked="true"
+                                value="Conference">
+                            Conference
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input name="journal" class="form-check-input" type="checkbox" checked="true"
+                                value="Journal">
+                            Journal
+                        </label>
+                    </div>
+                </fieldset>
+            </td>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </tr>
+
+</table>
+<a href="/sort">
+    <h7>Sort by year latest year</h7>
+</a>
+<div class="table-wrapper">
+    <table class="table table-hovered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Type</th>
+                <th scope="col">Year</th>
+                <th scope="col">Author</th>
+                <th scope="col">Language</th>
+                <th scope="col">Institution</th>
+                <th scope="col">Publication</th>
+                <th scope="col">Pages</th>
+                <th scope="col">Edition</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Link</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% publications.forEach((publication, index) => { %>
+            <tr>
+                <td><img src="/assets/img/<%= publication.image %>" class="rounded-circle player-img" alt="">
+                </td>
+                <td><%= publication.title %></td>
+                <td><%= publication.type %></td>
+                <td><%= publication.year %></td>
+                <td><%= publication.author %></td>
+                <td><%= publication.language %></td>
+                <td><%= publication.institution %></td>
+                <td><%= publication.Publication %></td>
+                <td><%= publication.pages %></td>
+                <td><%= publication.edition %></td>
+                <td><%= publication.topic %></td>
+                <td><a href=<%= publication.link %>>click here..</a> </td>
+            </tr> <% }) %> </tbody>
+    </table>
+</div>
+<% include partials/footer.ejs %>

@@ -1,0 +1,27 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+    <div class="row">
+        <% activities.forEach(function(activity){ %>
+        <div class="col-lg-6 col-md-1">
+            <div class="card border-dark mb-3" style="max-width: 50rem;">
+                <div class="card-header font-weight-bold"><%=  activity.name %></div>
+                <div class="card-body">
+                    <img src="/assets/img2/<%= activity.image %>" width="300px" height="300px" alt="">
+                    <ul>
+
+                        <li style="list-style-type:none;"><i class="far fa-clock fa-x"></i> <%= activity.date %></li>
+                        <li style="list-style-type:none;"><i class="fas fa-map-marked-alt fa-x"></i>
+                            <%= activity.location %></li>
+                        <li style="list-style-type:none;"><i class="fas fa-users fa-x"></i> <%= activity.organiser %>
+                        </li>
+                    </ul>
+                    <p class="card-text"><%= activity.description %></p>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+        <% include partials/footer.ejs %>
+    </div>
+</div>

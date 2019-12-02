@@ -1,0 +1,57 @@
+<% include partials/header2.ejs %>
+<a href="/admin-activity">
+    <h3>Edit and Add New Activity</h3>
+</a>
+<div class="table-wrapper">
+    <table class="table table-hovered">
+        <thead class="thead-dark">
+            <tr class="table-secondary">
+                <th scope="col">Title</th>
+                <th scope="col">Type</th>
+                <th scope="col">Year</th>
+                <th scope="col">Author</th>
+                <th scope="col">Language</th>
+                <th scope="col">Institution</th>
+                <th scope="col">Publication</th>
+                <th scope="col">Pages</th>
+                <th scope="col">Edition</th>
+                <th scope="col">Topic</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% publications.forEach((publication, index) => { %>
+            <tr>
+                <td><%= publication.title %></td>
+                <td><%= publication.type %></td>
+                <td><%= publication.year %></td>
+                <td><%= publication.author %></td>
+                <td><%= publication.language %></td>
+                <td><%= publication.institution %></td>
+                <td><%= publication.Publication %></td>
+                <td><%= publication.pages %></td>
+                <td><%= publication.edition %></td>
+                <td><%publication.topic%></td>
+                <td>
+                    <a href="/edit-publication/<%= publication.id %>" target="_blank" rel="noopener"
+                        class="btn btn-sm btn-success">Edit</a>
+                    <a href="/delete-publication/<%= publication.id %>" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-1">
+            <a href="/add-publication"><button type="button" class="btn btn-outline-secondary">Click here to add
+                    document</button></a>
+        </div>
+        <div class="col-lg-6 col-md-1">
+            <a href="/add-activity"><button type="button" class="btn btn-outline-warning">Click here to add
+                    activity</button></a>
+        </div>
+    </div>
+</div>
+<% include partials/footer.ejs %>

@@ -1,0 +1,37 @@
+<% include partials/header2.ejs %>
+<a href="/admin">
+    <h3>Edit and Add New Publication</h3>
+</a>
+<div class="table-wrapper">
+    <table class="table table-hovered">
+        <thead class="thead-dark">
+            <tr class="table-warning">
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Location</th>
+                <th scope="col">Organiser</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% activities.forEach((activity, index) => { %>
+            <tr>
+                <td><img src="/assets/img2/<%= activity.image %>" class="rounded-circle player-img" alt=""></td>
+                <td><%= activity.name %></td>
+                <td><%= activity.date %></td>
+                <td><%= activity.location %></td>
+                <td><%= activity.organiser %></td>
+                <td><%= activity.description %></td>
+                <td>
+                    <a href="/edit-activity/<%= activity.id %>" target="_blank" rel="noopener"
+                        class="btn btn-sm btn-success">Edit</a>
+                    <a href="/delete-activity/<%= activity.id %>" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<% include partials/footer.ejs %>
