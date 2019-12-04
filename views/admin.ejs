@@ -1,7 +1,12 @@
 <% include partials/header2.ejs %>
-<a href="/admin-activity">
-    <h3>Edit and Add New Activity</h3>
-</a>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-1">
+            <a href="/add-publication"><button type="button" class="btn btn-outline-secondary">Add New
+                    Document</button></a>
+        </div>
+    </div>
+</div>
 <div class="table-wrapper">
     <table class="table table-hovered">
         <thead class="thead-dark">
@@ -41,17 +46,5 @@
             <% }) %>
         </tbody>
     </table>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 col-md-1">
-            <a href="/add-publication"><button type="button" class="btn btn-outline-secondary">Click here to add
-                    document</button></a>
-        </div>
-        <div class="col-lg-6 col-md-1">
-            <a href="/add-activity"><button type="button" class="btn btn-outline-warning">Click here to add
-                    activity</button></a>
-        </div>
-    </div>
 </div>
 <% include partials/footer.ejs %>
