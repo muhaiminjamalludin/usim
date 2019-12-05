@@ -95,9 +95,9 @@ module.exports = function (passport) {
                         if (!rows.length) {
                             return done(null, false, req.flash('loginMessage', 'No User Found'));
                         }
-                        if (!bcrypt.compareSync(password, rows[0].password))
+                        if (!bcrypt.compareSync(password, rows[0].password)) {
                             return done(null, false, req.flash('loginMessage', 'Wrong Password'));
-
+                        }
                         return done(null, rows[0]);
                     });
             })

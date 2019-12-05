@@ -15,7 +15,7 @@ module.exports = {
 
         let message = '';
         let name = req.body.name;
-        let date = req.body.date;
+        let date = req.body.bdaytime;
         let location = req.body.location;
         let organiser = req.body.organiser;
         let description = req.body.description;
@@ -51,7 +51,7 @@ module.exports = {
                             if (err) {
                                 return res.status(500).send(err);
                             }
-                            res.redirect('/admin');
+                            res.redirect('/admin-activity');
                         });
                     });
                 } else {
