@@ -24,7 +24,32 @@ module.exports = {
         let fileExtension = uploadedFile.mimetype.split('/')[1];
         image_name = name + '.' + fileExtension;
 
-        let titleQuery = "SELECT * FROM `activity` WHERE name = '" + name + "'";
+        function mysql_real_escape_string(str) {
+            return str.replace(/[\0\x08\x09\x1a\n\r"'\\\%]/g, function (char) {
+                switch (char) {
+                    case "\0":
+                        return "\\0";
+                    case "\x08":
+                        return "\\b";
+                    case "\x09":
+                        return "\\t";
+                    case "\x1a":
+                        return "\\z";
+                    case "\n":
+                        return "\\n";
+                    case "\r":
+                        return "\\r";
+                    case "\"":
+                    case "'":
+                    case "\\":
+                    case "%":
+                        return "\\" + char; // prepends a backslash to backslash, percent,
+                    // and double/single quotes
+                }
+            });
+        }
+
+        let titleQuery = "SELECT * FROM `activity` WHERE name = '" + mysql_real_escape_string(name) + "'";
 
         db.query(titleQuery, (err, result) => {
             if (err) {
@@ -46,7 +71,7 @@ module.exports = {
                         }
                         // send the publication's details to the database
                         let query = "INSERT INTO `activity` (name, date, location, organiser, image, description) VALUES ('" +
-                            name + "', '" + date + "', '" + location + "', '" + organiser + "', '" + image_name + "', '" + description + "')";
+                            mysql_real_escape_string(name) + "', '" + date + "', '" + location + "', '" + mysql_real_escape_string(organiser) + "', '" + mysql_real_escape_string(image_name) + "', '" + mysql_real_escape_string(description) + "')";
                         db.query(query, (err, result) => {
                             if (err) {
                                 return res.status(500).send(err);
